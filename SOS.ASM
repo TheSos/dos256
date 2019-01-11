@@ -11,6 +11,7 @@ int 16h
 jnz end
 
 
+
 ;mov ax, word 100
 ;mov bx, word 100
 ;mov cx, word 100
@@ -77,8 +78,13 @@ test al,1
 jne nodraw
 mov ax,word [y]
 mov bx, word [x]
+mov dx, word 10
+moreline:
 mov cx, 20
 call line
+inc ax
+dec dx
+jnz moreline
 nodraw:
 popa
 ret
